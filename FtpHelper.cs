@@ -37,7 +37,7 @@ namespace CSharpLib
         private static string _mftpRemotePath = string.Empty;
 
         /// <summary>
-        /// 需要自动将ftpUri回退
+        /// 需要自动将ftpUri回退上一级
         /// </summary>
         private static bool _mbneedGoBack = false;
 
@@ -66,7 +66,7 @@ namespace CSharpLib
                 _minstance = new FtpHelper(_mftpUri, _mftpUserName, _mftpPassword);
             }
 
-           if (!string.IsNullOrEmpty(destination))
+            if (!string.IsNullOrEmpty(destination))
             {
                 if (IsRoot)
                 {
@@ -108,9 +108,9 @@ namespace CSharpLib
                     _mftpUri = sTemp;
                     return false;
                 }
-               else if (sTemp.EndsWith(_mftpServerIP)
-                    || sTemp.EndsWith(_mftpServerIP+"/")
-                    || sTemp.EndsWith(_mftpServerIP+"//"))
+                else if (sTemp.EndsWith(_mftpServerIP)
+                     || sTemp.EndsWith(_mftpServerIP + "/")
+                     || sTemp.EndsWith(_mftpServerIP + "//"))
                 {
                     _mftpUri = sTemp;
                     return false;
