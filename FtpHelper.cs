@@ -66,7 +66,7 @@ namespace CSharpLib
                 _minstance = new FtpHelper(_mftpUri, _mftpUserName, _mftpPassword);
             }
 
-            if (!string.IsNullOrEmpty(destination))
+           if (!string.IsNullOrEmpty(destination))
             {
                 if (IsRoot)
                 {
@@ -75,7 +75,15 @@ namespace CSharpLib
                 }
                 else
                 {
-                    _mftpRemotePath += "/" + destination;
+                    if (_mftpRemotePath.EndsWith("//"))
+                    {
+                        _mftpRemotePath += destination;
+                    }
+                    else
+                    {
+                        _mftpRemotePath += "/" + destination;
+                    }
+
                     _mftpUri = _mftpRemotePath;
                 }
             }
@@ -96,6 +104,13 @@ namespace CSharpLib
                 int iLastSpiltSecond = _mftpUri.LastIndexOf('/');
                 _mftpUri = _mftpUri.Substring(0, iLastSpiltSecond + 1);
                 if (!_mftpUri.Contains(sTemp.Substring(0, 15)))
+                {
+                    _mftpUri = sTemp;
+                    return false;
+                }
+               else if (sTemp.EndsWith(_mftpServerIP)
+                    || sTemp.EndsWith(_mftpServerIP+"/")
+                    || sTemp.EndsWith(_mftpServerIP+"//"))
                 {
                     _mftpUri = sTemp;
                     return false;
