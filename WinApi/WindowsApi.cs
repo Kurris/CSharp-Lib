@@ -44,5 +44,17 @@ namespace CSharpLib.WinApi
         /// <returns></returns>
         [DllImport("kernel32.dll")]
         internal static extern uint GlobalDeleteAtom(uint uInt16);
+
+
+        /// <summary>
+        /// 发送消息
+        /// </summary>
+        /// <param name="hwnd">当前句柄</param>
+        /// <param name="wMsg">消息类型</param>
+        /// <param name="wParam">消息内容</param>
+        /// <param name="lParam">内容句柄</param>
+        /// <returns></returns>
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, IntPtr lParam);
     }
 }
