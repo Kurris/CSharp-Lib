@@ -6,3 +6,5 @@
 /.vs/CSharpLib/v16
 /obj/Debug
 /packages
+/Test/bin/Debug
+/Test/obj/Debug
