@@ -53,6 +53,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -77,6 +78,7 @@
     <Compile Include="WinApi\HotKey.cs" />
     <Compile Include="WinApi\HotKeyOnForm\HotKeyManager.cs" />
     <Compile Include="WinApi\WindowsApi.cs" />
+    <Compile Include="WinApi\WinStruts.cs" />
     <Compile Include="WindowsServiceHelper.cs" />
     <Compile Include="ZipHelper.cs" />
   </ItemGroup>
